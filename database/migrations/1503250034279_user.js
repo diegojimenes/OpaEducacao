@@ -10,6 +10,12 @@ class UserSchema extends Schema {
       table.string('username', 80).notNullable().unique()
       table.string('email', 254).notNullable().unique()
       table.string('password', 60).notNullable()
+      table.boolean('isAdmin').notNullable()
+      table.string('name',124).notNullable()
+      table.string('polo',124).notNullable()
+      table.string('nucleo',124).notNullable()
+      table.integer('cpf').notNullable()
+      table.integer('fone').notNullable()
       table.timestamps()
     })
   }
