@@ -70,7 +70,24 @@ class PerguntaController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update({ params, request, response }) {}
+  async update({ params, request }) {
+    const pergunta = await Pergunta.findOrFail(params.id);
+    const data = request.only([
+      "video_id",
+      "question",
+      "responseCorrect",
+      "responses",
+      "valor"
+    ]);
+
+    pergunta.video_id = parseInt(data.video_id);
+    pergunta.responses = data.responses;
+    pergunta.question = data.question;
+    pergunta.responseCorrect = data.responseCorrect;
+    pergunta.valor = parseInt(data.valor);
+
+    return pergunta.save();
+  }
 
   /**
    * Delete a pergunta with id.

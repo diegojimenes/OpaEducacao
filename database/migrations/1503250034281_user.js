@@ -15,12 +15,14 @@ class UserSchema extends Schema {
         .string("email", 254)
         .notNullable()
         .unique();
+      table.string("img").notNullable();
       table.string("password", 60).notNullable();
       table.boolean("isAdmin").notNullable();
       table.string("polo", 124).notNullable();
       table.string("nucleo", 124).notNullable();
       table.string("cpf").notNullable();
       table.string("fone").notNullable();
+      table.integer("pontos").defaultTo(0);
       table.timestamps();
     });
   }

@@ -7,6 +7,12 @@ class Video extends Model {
   perguntas() {
     return this.hasMany("App/Models/Pergunta");
   }
+  comentarios() {
+    return this.hasMany("App/Models/Comentario");
+  }
+  tempo() {
+    return this.hasMany("App/Models/Time");
+  }
 }
 
 module.exports = Video;

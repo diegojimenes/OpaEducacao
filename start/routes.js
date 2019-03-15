@@ -21,8 +21,17 @@ Route.post("/authenticate", "AuthController.authenticate");
 Route.get("/verificateUser", "AuthController.verificateUser").middleware(
   "auth"
 );
+Route.put("/editUser/:id", "AuthController.update").middleware("auth");
+Route.get("/listUsers", "AuthController.listUsers").middleware("auth");
+Route.delete("/deleteUser/:id", "AuthController.deleteUser").middleware("auth");
+Route.post("/changePoints", "AuthController.changePoints").middleware("auth");
+Route.post("/addTime", "TimeController.store").middleware("auth");
 
 Route.group(() => {
   Route.resource("videos", "VideoController").apiOnly();
   Route.resource("perguntas", "PerguntaController").apiOnly();
+  Route.resource("visualizado", "VisualizadoController").apiOnly();
+  Route.resource("comentario", "ComentarioController").apiOnly();
+  Route.resource("post", "PostController").apiOnly();
+  Route.post("/upload", "VideoController.sendVideoToAWS");
 }).middleware("auth");

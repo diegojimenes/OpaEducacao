@@ -8,6 +8,7 @@ class VideoSchema extends Schema {
     this.create("videos", table => {
       table.increments();
       table.string("url", 500).notNullable();
+      table.string("thumbnail", 500).notNullable();
       table.string("title", 500).notNullable();
       table.string("description", 500).notNullable();
       table.json("tags");
