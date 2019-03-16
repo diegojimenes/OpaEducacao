@@ -33,5 +33,6 @@ Route.group(() => {
   Route.resource("visualizado", "VisualizadoController").apiOnly();
   Route.resource("comentario", "ComentarioController").apiOnly();
   Route.resource("post", "PostController").apiOnly();
+  Route.resource("notify", "NotificatioController").apiOnly();
   Route.post("/upload", "VideoController.sendVideoToAWS");
 }).middleware("auth");
