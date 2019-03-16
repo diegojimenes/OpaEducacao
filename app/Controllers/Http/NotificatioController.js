@@ -20,7 +20,7 @@ class NotificatioController {
    * @param {View} ctx.view
    */
   async index() {
-    const notification = await Notification.query().fetch();
+    const notification = await Notification.pickInverse(5);
 
     return notification;
   }
