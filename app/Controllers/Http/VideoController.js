@@ -2,7 +2,6 @@
 
 const Video = use("App/Models/Video");
 const Drive = use("Drive");
-const Request = use("Request");
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
