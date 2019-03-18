@@ -9,7 +9,7 @@ class NotificatioSchema extends Schema {
       table.increments();
       table.string("title");
       table.string("body");
-      table.string("data");
+      table.json("data");
       table.timestamps();
     });
   }

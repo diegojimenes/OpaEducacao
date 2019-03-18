@@ -4,7 +4,22 @@ const User = use("App/Models/User");
 
 class AuthController {
   async listUsers() {
-    const user = await User.query().fetch();
+    const user = await User.query()
+      .orderBy("created_at")
+
+      // .distinct("pontos", "updated_at", "id", "username", "img")
+      .fetch();
+
+    return user;
+  }
+
+  async ranking() {
+    const user = await User.query()
+      .with("videos")
+      .limit(22)
+      .orderBy("pontos", "updated_at")
+      .distinct("pontos", "updated_at", "id", "username", "img")
+      .fetch();
 
     return user;
   }
@@ -74,6 +89,7 @@ class AuthController {
     var user = await auth.getUser();
     const userWithVideo = await User.findOrFail(user.id);
     await userWithVideo.load("videos");
+    await userWithVideo.load("notificacoes");
     userWithVideo.password = null;
     return userWithVideo;
   }

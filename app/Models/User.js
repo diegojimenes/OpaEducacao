@@ -40,6 +40,9 @@ class User extends Model {
   cometarios() {
     return this.hasMany("App/Models/Comentario");
   }
+  notificacoes() {
+    return this.hasMany("App/Models/UserNotificate");
+  }
 }
 
 module.exports = User;
