@@ -6,7 +6,6 @@ class AuthController {
   async listUsers() {
     const user = await User.query()
       .orderBy("created_at")
-
       // .distinct("pontos", "updated_at", "id", "username", "img")
       .fetch();
 
